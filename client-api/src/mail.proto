@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package sendmail;
+
+
+service SendMailService {
+    rpc sendMail (Mail) returns (SendMailResponse) {}
+}
+
+message Mail {
+    string to = 1;
+    string subject = 2;
+    optional string text = 3;
+    string html = 4;
+}
+
+message SendMailResponse {
+    string createdAt = 1;
+    string email = 2;
+}
